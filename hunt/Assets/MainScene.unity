@@ -106,7 +106,7 @@ MonoBehaviour:
   numberOfPeople: 20
   peopleRefs: []
   player: {fileID: 0}
-  playerPrefab: {fileID: 100000, guid: 27d755b46ea4541a0b9cf64144ab703b, type: 2}
+  playerPrefab: {fileID: 100000, guid: 4521ed43546344e4c9a3fbaae7ef6539, type: 2}
   personPrefab: {fileID: 100000, guid: 097b264d7bc434feb8aef8da65790694, type: 2}
 --- !u!4 &641896233
 Transform:
