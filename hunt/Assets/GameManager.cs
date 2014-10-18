@@ -7,6 +7,9 @@ public class GameManager : MonoBehaviour {
 
 	public static GameManager instance;
 
+	// Modifiable information
+	public int numberOfPeople;
+
 	public List<GameObject> peopleRefs;
 	public GameObject player;
 
@@ -30,7 +33,8 @@ public class GameManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		this.spawnPlayers();
+		this.spawnPlayer();
+		this.spawnPeople ();
 	}
 	
 	// Update is called once per frame
@@ -39,7 +43,16 @@ public class GameManager : MonoBehaviour {
 	}
 
 
-	private void spawnPlayers() {
+	private void spawnPeople() {
+		Debug.Log ("Spawning " + this.numberOfPeople + " people.");
+		for (int i = 0; i < this.numberOfPeople; ++i) {
+			GameObject player = (GameObject)Instantiate(personPrefab);
+			this.peopleRefs.Add(player);
+			player.transform.position = new Vector3(0,0,0);
+		}
+	}
+
+	private void spawnPlayer() {
 		Debug.Log("Spawning player!");
 
 		this.player = (GameObject)Instantiate(playerPrefab);
