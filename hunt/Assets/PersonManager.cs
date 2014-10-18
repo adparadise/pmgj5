@@ -28,12 +28,8 @@ public class PersonManager : MonoBehaviour {
 		}
 
 		Vector2 movementVector = Vector2.MoveTowards (rigidbody2D.position, goalLocation, speed);
+
 		rigidbody2D.MovePosition ( movementVector );
-
-
-		/// = Vector3.MoveTowards (this.transform.position, goalLocation, speed);
-//		this.transform.Translate(Vector3.MoveTowards (this.transform.position, goalLocation, speed) );
-//		this.transform.position = (Vector3.MoveTowards (this.transform.position, goalLocation, speed) );
 	}
 
 	public void OnCollisionEnter(Collision collision) {
