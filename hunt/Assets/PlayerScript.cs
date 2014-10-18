@@ -3,30 +3,24 @@ using System.Collections;
 
 public class PlayerScript : MonoBehaviour {
 
-	public Vector2 goalLocation;
+	public float maxSpeed = 0.1f;
 
 	// Use this for initialization
 	void Start () {
+		
+	}
 	
-	}
-
-	private Vector2 speed = new Vector3(1, 0, 0);
 	void FixedUpdate() {
-//		Vector2 next = rigidbody2D.position + speed * Time.deltaTime;
-//		rigidbody2D.MovePosition(next);	
-
-
-		if (rigidbody2D.position == this.goalLocation) {
-			findNewGoal();
-		}
+		float w = Input.GetAxis ("Horizontal");
+		float h = Input.GetAxis ("Vertical");
+		float distance = Mathf.Sqrt (Mathf.Pow (h, 2) + Mathf.Pow (w, 2));
+		float direction = Mathf.Atan2 (h, w);
 		
-		Vector2 movementVector = Vector2.MoveTowards (rigidbody2D.position, this.goalLocation, 0.03f);
+		distance = Mathf.Min (distance, maxSpeed);
+		Vector2 movement = new Vector2 (distance * Mathf.Cos (direction),
+		                                distance * Mathf.Sin (direction));
 		
-		rigidbody2D.MovePosition ( movementVector );
-	}
-
-
-	private void findNewGoal () {
-		this.goalLocation = GameManager.findRandomPointOnMap ();
+		Vector2 next = rigidbody2D.position + movement;
+		rigidbody2D.MovePosition(next);	
 	}
 }
