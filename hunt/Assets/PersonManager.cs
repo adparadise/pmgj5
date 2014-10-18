@@ -30,11 +30,11 @@ public class PersonManager : MonoBehaviour {
 		Vector2 movementVector = Vector2.MoveTowards (rigidbody2D.position, goalLocation, speed);
 
 		rigidbody2D.MovePosition ( movementVector );
+
 	}
 
-	public void OnCollisionEnter(Collision collision) {
+	public void OnCollisionEnter2D(Collision2D collision) {
 		Debug.Log ("DERP");
-
 
 	}
 
