@@ -27,10 +27,8 @@ public class PersonManager : MonoBehaviour {
 			findNewGoal();
 		}
 
-//		Vector2 normalizedVector = (new Vector2 (goalLocation.x, goalLocation.y)).normalized;
-		Vector2 normalizedVector = Vector2.MoveTowards (rigidbody2D.position, goalLocation, speed);
-		Debug.Log (normalizedVector);
-		rigidbody2D.MovePosition ( normalizedVector );
+		Vector2 movementVector = Vector2.MoveTowards (rigidbody2D.position, goalLocation, speed);
+		rigidbody2D.MovePosition ( movementVector );
 
 
 		/// = Vector3.MoveTowards (this.transform.position, goalLocation, speed);
@@ -40,9 +38,7 @@ public class PersonManager : MonoBehaviour {
 
 	public void OnCollisionEnter(Collision collision) {
 		Debug.Log ("DERP");
-		if (collision.gameObject.tag == "Key") {
 
-		}
 
 	}
 
