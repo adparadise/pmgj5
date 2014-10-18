@@ -13,11 +13,13 @@ public class GameManager : MonoBehaviour {
 
 	public List<GameObject> peopleRefs;
 	public GameObject player;
+	public GameObject werewolf;
 
 
 	// Prefabs.
 	public GameObject playerPrefab;
 	public GameObject personPrefab;
+	public GameObject werewolfPrefab;
 
 	public void Awake() {
 		this.peopleRefs = new List<GameObject>();
@@ -36,6 +38,7 @@ public class GameManager : MonoBehaviour {
 	void Start () {
 		this.spawnPlayer();
 		this.spawnPeople ();
+		this.spawnWerewolf ();
 	}
 	
 	// Update is called once per frame
@@ -57,8 +60,15 @@ public class GameManager : MonoBehaviour {
 		Debug.Log("Spawning player!");
 
 		this.player = (GameObject)Instantiate(playerPrefab);
-		this.player.transform.position = new Vector2(0,0);
+		this.player.rigidbody2D.position = new Vector2(0,0);
 
+	}
+
+	private void spawnWerewolf () {
+		Debug.Log ("Spawning Werewolf");
+
+		this.werewolf = (GameObject)Instantiate (werewolfPrefab);
+		this.werewolf.rigidbody2D.position = findRandomPointOnMap ();
 	}
 
 
