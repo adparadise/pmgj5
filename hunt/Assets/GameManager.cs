@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -8,6 +7,8 @@ public class GameManager : MonoBehaviour {
 	public static GameManager instance;
 
 	// Modifiable information
+	public float widthOfLevel;
+	public float heightOfLevel;
 	public int numberOfPeople;
 
 	public List<GameObject> peopleRefs;
@@ -46,9 +47,9 @@ public class GameManager : MonoBehaviour {
 	private void spawnPeople() {
 		Debug.Log ("Spawning " + this.numberOfPeople + " people.");
 		for (int i = 0; i < this.numberOfPeople; ++i) {
-			GameObject player = (GameObject)Instantiate(personPrefab);
-			this.peopleRefs.Add(player);
-			player.transform.position = new Vector3(0,0,0);
+			GameObject person = (GameObject)Instantiate(personPrefab);
+			this.peopleRefs.Add(person);
+			person.rigidbody2D.position = findRandomPointOnMap();
 		}
 	}
 
@@ -56,11 +57,15 @@ public class GameManager : MonoBehaviour {
 		Debug.Log("Spawning player!");
 
 		this.player = (GameObject)Instantiate(playerPrefab);
-		player.transform.position = new Vector3(0,0,0);
+		this.player.transform.position = new Vector2(0,0);
 
 	}
 
+
+	public static Vector2 findRandomPointOnMap() {
+		return new Vector2(Random.Range(-GameManager.instance.widthOfLevel, GameManager.instance.widthOfLevel),
+		                   Random.Range(-GameManager.instance.heightOfLevel, GameManager.instance.heightOfLevel));
+	}
 }
-	
-	
-	
+
+

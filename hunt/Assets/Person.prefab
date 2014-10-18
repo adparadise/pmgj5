@@ -10,6 +10,7 @@ GameObject:
   - 4: {fileID: 400000}
   - 114: {fileID: 11400000}
   - 212: {fileID: 21200000}
+  - 50: {fileID: 5000000}
   m_Layer: 0
   m_Name: Person
   m_TagString: Untagged
@@ -29,6 +30,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!50 &5000000
+Rigidbody2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: .0500000007
+  m_GravityScale: 0
+  m_FixedAngle: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -40,9 +56,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 647ecb1cde8a143469b0fa4b87de770c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: .00999999978
-  currentLocation: {x: 0, y: 0, z: 0}
-  goalLocation: {x: 0, y: 0, z: 0}
+  maxSpeed: .00999999978
+  minSpeed: .0250000004
+  goalLocation: {x: 0, y: 0}
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -101,7 +101,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab64405e95ab9490199c0116ce003cfb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numberOfPeople: 10
+  widthOfLevel: 5
+  heightOfLevel: 5
+  numberOfPeople: 20
   peopleRefs: []
   player: {fileID: 0}
   playerPrefab: {fileID: 100000, guid: 27d755b46ea4541a0b9cf64144ab703b, type: 2}
