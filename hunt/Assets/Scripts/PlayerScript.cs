@@ -73,7 +73,7 @@ public class PlayerScript : MonoBehaviour {
 
 	void beginPunch () {
 		this.fist.rigidbody2D.collider2D.enabled = true;
-		this.fist.renderer.enabled = true;
+		//this.fist.renderer.enabled = true;
 	}
 
 	void endPunch () {

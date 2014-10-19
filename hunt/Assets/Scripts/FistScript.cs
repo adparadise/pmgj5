@@ -14,10 +14,8 @@ public class FistScript : MonoBehaviour {
 	}
 	
 	void OnTriggerEnter2D(Collider2D other) {
-		//Debug.Log (string.Format ("enter: {0}", other));
-	}
-	
-	void OnTriggerExit2D(Collider2D other) {
-		//Debug.Log (string.Format ("exit: {0}", other));
+		if (other.gameObject.name == "Werewolf(Clone)") {
+			Debug.Log ("win!");
+		}
 	}
 }
