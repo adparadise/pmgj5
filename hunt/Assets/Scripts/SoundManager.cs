@@ -4,6 +4,7 @@ using System.Collections;
 public class SoundManager : MonoBehaviour {
 
 	public AudioClip music;
+	public AudioClip chaseMusic;
 	
 	public static SoundManager instance;
 	public AudioSource audioSource;
@@ -26,7 +27,7 @@ public class SoundManager : MonoBehaviour {
 //		this.audioSource = new AudioSource ();
 //		this.audioSource = GameObject.AddComponent<AudioSource> ();
 		this.audioSource.clip = music;
-		this.audioSource.loop = true;
+//		this.audioSource.loop = true;
 
 		this.audioSource.Play ();
 //		audioSource = GetComponents<AudioSource> ();
@@ -40,11 +41,16 @@ public class SoundManager : MonoBehaviour {
 			// do nothing
 		} else {
 			this.counterForNextClip++;
-			if (this.counterForNextClip > 1) {
+			if (this.counterForNextClip == 2) {
 				// play second track
+				this.audioSource.clip = this.chaseMusic;
+				this.audioSource.Play ();
+			} else if (this.counterForNextClip == 1) {
+				this.audioSource.Play ();
 			}
 
-			this.audioSource.Play ();
+			// Do nothing if no more sound is available.
+
 		}
 	}
 	

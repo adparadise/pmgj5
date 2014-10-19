@@ -528,7 +528,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5849ab97319e540919fa0a3e8946d3db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  music: {fileID: 8300000, guid: 134e3fe8dba2a4f83a22b6defe791936, type: 3}
+  music: {fileID: 8300000, guid: ff7527dd420124f43b102d74fe44e946, type: 3}
+  chaseMusic: {fileID: 8300000, guid: fdf5512416b0f44f594b7c18b8d26960, type: 3}
   audioSource: {fileID: 2131368914}
 --- !u!4 &2131368913
 Transform:
@@ -550,7 +551,7 @@ AudioSource:
   m_GameObject: {fileID: 2131368911}
   m_Enabled: 1
   serializedVersion: 3
-  m_audioClip: {fileID: 8300000, guid: 134e3fe8dba2a4f83a22b6defe791936, type: 3}
+  m_audioClip: {fileID: 8300000, guid: ff7527dd420124f43b102d74fe44e946, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
