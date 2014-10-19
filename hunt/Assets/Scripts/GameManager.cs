@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour {
 	public static GameManager instance;
 	public bool gameStarted;
 
+
 	// Modifiable information
 	public float widthOfLevel;
 	public float heightOfLevel;
@@ -16,6 +17,8 @@ public class GameManager : MonoBehaviour {
 	public GameObject player;
 	public GameObject werewolf;
 
+	// Various variables
+	private float timeSinceLevelChange;
 
 	// Prefabs.
 	public GameObject playerPrefab;
@@ -29,6 +32,7 @@ public class GameManager : MonoBehaviour {
 			Debug.LogError("Only one copy of gamemanager allowed!");
 		}
 		this.gameStarted = false;
+		this.timeSinceLevelChange = Time.time;
 	}
 
 
@@ -40,7 +44,9 @@ public class GameManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (!this.gameStarted && Input.GetKeyDown (KeyCode.Space)) {
+		if (!this.gameStarted 
+		    && Input.GetKeyDown (KeyCode.Space)
+		    && (Time.time - this.timeSinceLevelChange) > 5.0f) {
 			this.startNewLevel();
 		}
 	}
@@ -64,6 +70,8 @@ public class GameManager : MonoBehaviour {
 		this.clearScreen ();
 		SoundManager.instance.endLevel ();
 		UIManager.instance.endLevel ();
+		timeSinceLevelChange = Time.time;
+		this.gameStarted = false;
 	}
 
 	private void clearScreen () {
