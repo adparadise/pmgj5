@@ -8,6 +8,10 @@ public class Werewolf : MonoBehaviour {
 	public float minSpeed;
 	private float speed;
 	
+	public GameObject siloPrefab;
+
+	private GameObject silo;
+	
 	// Our speed is in between these values to create more chaos.
 	public Vector2 goalLocation;
 	
@@ -15,7 +19,7 @@ public class Werewolf : MonoBehaviour {
 	void Start () {
 		findNewGoal ();
 		speed = Random.Range (minSpeed, maxSpeed);
-		
+		this.silo = (GameObject)Instantiate (siloPrefab);
 	}
 	
 	// Update is called once per frame
@@ -35,7 +39,11 @@ public class Werewolf : MonoBehaviour {
 		Vector2 movementVector = Vector2.MoveTowards (rigidbody2D.position, goalLocation, speed);
 		
 		rigidbody2D.MovePosition ( movementVector );
-		
+		moveSilo ();
+	}
+
+	private void moveSilo () {
+		this.silo.rigidbody2D.MovePosition (this.rigidbody2D.position);
 	}
 	
 	public void OnCollisionEnter2D(Collision2D collision) {
