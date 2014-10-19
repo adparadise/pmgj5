@@ -15,7 +15,7 @@ public class FistScript : MonoBehaviour {
 	
 	void OnTriggerEnter2D(Collider2D other) {
 		if (other.gameObject.name == "Werewolf(Clone)") {
-			Debug.Log ("win!");
+			GameManager.instance.showWinScreen();
 		}
 	}
 }
