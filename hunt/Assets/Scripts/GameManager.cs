@@ -127,7 +127,7 @@ public class GameManager : MonoBehaviour {
 		Debug.Log("Spawning player!");
 
 		this.player = (GameObject)Instantiate(playerPrefab);
-		this.player.rigidbody2D.position = new Vector2(0,0);
+		this.player.rigidbody2D.position = new Vector2(0,-1.5f);
 
 	}
 
