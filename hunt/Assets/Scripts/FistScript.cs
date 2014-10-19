@@ -2,6 +2,10 @@
 using System.Collections;
 
 public class FistScript : MonoBehaviour {
+	
+	public AudioClip hitSound;
+	
+	public AudioSource audioSource;
 
 	// Use this for initialization
 	void Start () {
@@ -15,7 +19,10 @@ public class FistScript : MonoBehaviour {
 	
 	void OnTriggerEnter2D(Collider2D other) {
 		if (other.gameObject.name == "Werewolf(Clone)") {
-			GameManager.instance.showWinScreen();
+			GameManager.instance.showWinScreen ();
+		} else {
+			this.audioSource.clip = this.hitSound;
+			this.audioSource.Play ();
 		}
 	}
 }
