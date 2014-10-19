@@ -7,6 +7,8 @@ public class BackgroundManager : MonoBehaviour {
 
 	public Sprite mapBackground;
 	public Sprite introBackground;
+	public Sprite winBackground;
+	public Sprite loseBackground;
 	
 	public SpriteRenderer spriteRenderer;
 
@@ -42,10 +44,10 @@ public class BackgroundManager : MonoBehaviour {
 	}
 
 	public void showWin () {
-
+		this.spriteRenderer.sprite = winBackground;
 	}
 
 	public void showLose () {
-
+		this.spriteRenderer.sprite = loseBackground;
 	}
 }

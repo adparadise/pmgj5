@@ -94,12 +94,14 @@ public class GameManager : MonoBehaviour {
 	public void showWinScreen () {
 		this.endLevel ();
 		this.currentScore++;
+		BackgroundManager.instance.showWin ();
 		UIManager.instance.setScore(this.currentScore);
 		SoundManager.instance.playWinMusic ();
 	}
 
 	public void showLoseScreen () {
 		this.endLevel ();
+		BackgroundManager.instance.showLose ();
 		SoundManager.instance.playLoseMusic ();
 	}
 
