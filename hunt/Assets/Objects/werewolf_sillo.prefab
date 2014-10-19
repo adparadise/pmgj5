@@ -56,8 +56,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 046fd0b1a0904441daea96ad67141733, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minWait: 600
-  maxWait: 900
+  minWait: 150
+  maxWait: 200
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1
