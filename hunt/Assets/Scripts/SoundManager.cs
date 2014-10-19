@@ -46,7 +46,6 @@ public class SoundManager : MonoBehaviour {
 	public void endRound() {
 		audioSource[0].Stop();
 		audioSource[0].volume = 1.0f;
-		audioSource[1].Stop();
 	}
 }
 
