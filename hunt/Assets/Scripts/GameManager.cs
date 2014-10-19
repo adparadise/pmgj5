@@ -20,6 +20,9 @@ public class GameManager : MonoBehaviour {
 	// Various variables
 	private float timeSinceLevelChange;
 
+	// Game Rules
+	private int currentScore;
+
 	// Prefabs.
 	public GameObject playerPrefab;
 	public GameObject personPrefab;
@@ -33,6 +36,7 @@ public class GameManager : MonoBehaviour {
 		}
 		this.gameStarted = false;
 		this.timeSinceLevelChange = Time.time;
+		this.currentScore = 0;
 	}
 
 
@@ -88,6 +92,8 @@ public class GameManager : MonoBehaviour {
 
 	public void showWinScreen () {
 		this.endLevel ();
+		this.currentScore++;
+		UIManager.instance.setScore(this.currentScore);
 		SoundManager.instance.playWinMusic ();
 	}
 

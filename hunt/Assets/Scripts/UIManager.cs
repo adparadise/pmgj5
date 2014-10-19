@@ -7,6 +7,7 @@ public class UIManager : MonoBehaviour {
 
 	// UI Elements
 	public UITimer timer;
+	public GUIText scoreText;
 
 	void Awake () {
 		Debug.Log ("Creating UI Manager");
@@ -17,6 +18,7 @@ public class UIManager : MonoBehaviour {
 			Debug.LogError("Only one copy of gamemanager allowed!");
 		}
 		timer.guiText.enabled = false;
+		scoreText.enabled = false;
 	}
 
 	// Use this for initialization
@@ -29,14 +31,20 @@ public class UIManager : MonoBehaviour {
 		
 	}
 
+	public void setScore (int score) {
+		scoreText.text = "Lives Changed: " + score;
+	}
+
 	public void startNewLevel () {
 		timer.resetTimer ();
 		timer.guiText.enabled = true;
+		scoreText.enabled = true;
 		timer.startTimer();
 	}
 
 	public void endLevel () {
 		timer.stopTimer ();
 		timer.guiText.enabled = false;
+		scoreText.enabled = false;
 	}
 }
