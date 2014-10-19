@@ -7,6 +7,8 @@ public class SoundManager : MonoBehaviour {
 
 	public AudioClip music;
 	public AudioClip chaseMusic;
+	public AudioClip loseMusic;
+	public AudioClip winMusic;
 	
 
 	public AudioSource audioSource;
@@ -35,17 +37,31 @@ public class SoundManager : MonoBehaviour {
 			// do nothing
 		} else if (!isPaused) {
 			this.counterForNextClip++;
-			if (this.counterForNextClip == 2) {
+			if (this.counterForNextClip == 1) {
 				// play second track
 				this.audioSource.clip = this.chaseMusic;
 				this.audioSource.Play ();
-			} else if (this.counterForNextClip == 1) {
+			} else if (this.counterForNextClip == 0) {
 				this.audioSource.Play ();
 			}
 
 			// Do nothing if no more sound is available.
 
 		}
+	}
+
+	public void playLoseMusic() {
+		this.isPaused = true;
+		this.audioSource.Stop ();
+		this.audioSource.clip = loseMusic;
+		this.audioSource.Play ();
+	}
+
+	public void playWinMusic() {
+		this.isPaused = true;
+		this.audioSource.Stop ();
+		this.audioSource.clip = winMusic;
+		this.audioSource.Play ();
 	}
 	
 	public void pause() {

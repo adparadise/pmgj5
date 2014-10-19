@@ -58,9 +58,18 @@ public class GameManager : MonoBehaviour {
 		this.gameStarted = true;
 	}
 
+	private void endLevel () {
+		this.clearScreen ();
+		SoundManager.instance.endLevel ();
+		UIManager.instance.endLevel ();
+	}
+
 	private void clearScreen () {
 		while (this.peopleRefs.Count > 0) {
-			Destroy (this.peopleRefs[0]);
+			GameObject person = this.peopleRefs[0];
+			this.peopleRefs.RemoveAt(0);
+			Destroy (person);
+
 		}
 
 
@@ -69,7 +78,17 @@ public class GameManager : MonoBehaviour {
 	}
 
 
+	public void showWinScreen () {
+		this.endLevel ();
+		SoundManager.instance.playWinMusic ();
+	}
 
+	public void showLoseScreen () {
+		this.endLevel ();
+		SoundManager.instance.playLoseMusic ();
+
+
+	}
 
 
 

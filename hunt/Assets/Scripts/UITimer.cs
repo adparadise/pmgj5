@@ -12,7 +12,7 @@ public class UITimer : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		roundTime = 90.0f;
+		roundTime = 85.0f;
 	}
 	
 	// Update is called once per frame
@@ -23,6 +23,8 @@ public class UITimer : MonoBehaviour {
 			if (remainingTime <= 0) {
 				stopTimer();
 				remainingTime = 0.0f;
+				this.updateWithTime( remainingTime );
+				GameManager.instance.showLoseScreen();
 			} 
 
 			this.updateWithTime( remainingTime );

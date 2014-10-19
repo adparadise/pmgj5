@@ -531,6 +531,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   music: {fileID: 8300000, guid: ff7527dd420124f43b102d74fe44e946, type: 3}
   chaseMusic: {fileID: 8300000, guid: fdf5512416b0f44f594b7c18b8d26960, type: 3}
+  loseMusic: {fileID: 8300000, guid: 4cebb0337b14346128e81717d1cd9da2, type: 3}
+  winMusic: {fileID: 8300000, guid: 7b0b108783294494ba5aab645313b6e0, type: 3}
   audioSource: {fileID: 2131368914}
 --- !u!4 &2131368913
 Transform:
