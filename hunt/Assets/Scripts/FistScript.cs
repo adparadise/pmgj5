@@ -21,8 +21,10 @@ public class FistScript : MonoBehaviour {
 		if (other.gameObject.name == "Werewolf(Clone)") {
 			GameManager.instance.showWinScreen ();
 		} else {
-			this.audioSource.clip = this.hitSound;
-			this.audioSource.Play ();
+			if (GameManager.instance.gameStarted) {
+				this.audioSource.clip = this.hitSound;
+				this.audioSource.Play ();
+			}
 		}
 	}
 }
