@@ -620,7 +620,7 @@ SpriteRenderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: e60335d7f28644017abb87cea3a74418, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0c393d594d5734b4091b993fd4c1e4a2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!4 &1792491408
 Transform:
@@ -645,7 +645,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40b37c3f115dd4fe598c54731bc4e6e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mapBackground: {fileID: 21300000, guid: e60335d7f28644017abb87cea3a74418, type: 3}
+  mapBackground: {fileID: 21300000, guid: 0c393d594d5734b4091b993fd4c1e4a2, type: 3}
   introBackground: {fileID: 21300000, guid: 6a16e009a82334ab2a5ec69085623ac6, type: 3}
   winBackground: {fileID: 21300000, guid: 792f027d522674091a4466d8e6333ed1, type: 3}
   winPunchBackground: {fileID: 21300000, guid: 59e2883e03839408b86803641b5287b7, type: 3}
