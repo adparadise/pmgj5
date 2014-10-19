@@ -47,6 +47,24 @@ public class GameManager : MonoBehaviour {
 	}
 
 
+
+	private void startNewLevel (){
+		this.clearScreen ();
+
+		this.spawnPlayer();
+		this.spawnPeople ();
+		this.spawnWerewolf ();
+	}
+
+	private void clearScreen () {
+
+	}
+
+
+
+
+
+
 	private void spawnPeople() {
 		Debug.Log ("Spawning " + this.numberOfPeople + " people.");
 		for (int i = 0; i < this.numberOfPeople; ++i) {
