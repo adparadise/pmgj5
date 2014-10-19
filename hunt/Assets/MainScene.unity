@@ -647,7 +647,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mapBackground: {fileID: 21300000, guid: e60335d7f28644017abb87cea3a74418, type: 3}
   introBackground: {fileID: 21300000, guid: 6a16e009a82334ab2a5ec69085623ac6, type: 3}
-  winBackground: {fileID: 0}
+  winBackground: {fileID: 21300000, guid: 792f027d522674091a4466d8e6333ed1, type: 3}
+  winPunchBackground: {fileID: 21300000, guid: 59e2883e03839408b86803641b5287b7, type: 3}
+  winFinalBackground: {fileID: 21300000, guid: 86a6cd96e83b24b6485f6fc0d6b72a4a, type: 3}
   loseBackground: {fileID: 21300000, guid: fbb0c169f70244230bc0a0586c9ec853, type: 3}
   spriteRenderer: {fileID: 1792491407}
 --- !u!1001 &1802128567
