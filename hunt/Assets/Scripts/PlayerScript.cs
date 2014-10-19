@@ -13,7 +13,10 @@ public class PlayerScript : MonoBehaviour {
 
 	public int punchDuration = 25;
 	public int coolDownDuration = 35;
-	public GameObject fistPrefab;
+	public GameObject fistPrefab;	
+	public AudioClip swingSound;
+	
+	public AudioSource audioSource;
 
 	// Use this for initialization
 	void Start () {
@@ -74,6 +77,8 @@ public class PlayerScript : MonoBehaviour {
 
 	void beginPunch () {
 		this.fist.rigidbody2D.collider2D.enabled = true;
+		this.audioSource.clip = this.swingSound;
+		this.audioSource.Play ();
 		//this.fist.renderer.enabled = true;
 	}
 
