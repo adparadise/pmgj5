@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour {
 
 	// Prefabs.
 	public GameObject playerPrefab;
+	public GameObject personWomanPrefab;
 	public GameObject personPrefab;
 	public GameObject werewolfPrefab;
 
@@ -107,7 +108,14 @@ public class GameManager : MonoBehaviour {
 	private void spawnPeople() {
 		Debug.Log ("Spawning " + this.numberOfPeople + " people.");
 		for (int i = 0; i < this.numberOfPeople; ++i) {
-			GameObject person = (GameObject)Instantiate(personPrefab);
+			GameObject person;
+			int random = Random.Range(0,2);
+			if (random == 0) {
+				person = (GameObject)Instantiate(personPrefab);
+			}
+			else {
+				person = (GameObject)Instantiate(personWomanPrefab);
+			}
 			this.peopleRefs.Add(person);
 			person.rigidbody2D.position = findRandomPointOnMap();
 		}
