@@ -138,7 +138,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
 --- !u!1 &641896231
 GameObject:
   m_ObjectHideFlags: 0
@@ -167,6 +167,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab64405e95ab9490199c0116ce003cfb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameStarted: 0
   widthOfLevel: 5
   heightOfLevel: 3.5
   numberOfPeople: 20
@@ -187,7 +188,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 5
 --- !u!1 &835472832
 GameObject:
   m_ObjectHideFlags: 0
@@ -309,7 +310,7 @@ SpriteRenderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: b8e97403655e74438b7d1be93d22ae57, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e60335d7f28644017abb87cea3a74418, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!4 &1792491408
 Transform:
@@ -542,7 +543,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 2
 --- !u!82 &2131368914
 AudioSource:
   m_ObjectHideFlags: 0

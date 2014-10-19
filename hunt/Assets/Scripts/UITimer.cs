@@ -13,7 +13,6 @@ public class UITimer : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		roundTime = 90.0f;
-		updateWithTime (roundTime);
 	}
 	
 	// Update is called once per frame
@@ -28,6 +27,10 @@ public class UITimer : MonoBehaviour {
 
 			this.updateWithTime( remainingTime );
 		}
+	}
+
+	public void resetTimer () {
+		updateWithTime (roundTime);
 	}
 
 	public void startTimer () {

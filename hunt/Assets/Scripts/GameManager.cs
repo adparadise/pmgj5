@@ -5,6 +5,7 @@ using System.Collections.Generic;
 public class GameManager : MonoBehaviour {
 
 	public static GameManager instance;
+	public bool gameStarted;
 
 	// Modifiable information
 	public float widthOfLevel;
@@ -22,24 +23,20 @@ public class GameManager : MonoBehaviour {
 	public GameObject werewolfPrefab;
 
 	public void Awake() {
-		this.peopleRefs = new List<GameObject>();
-
-		
 		if (instance == null) {
 			instance = this;
 		} else {
 			Debug.LogError("Only one copy of gamemanager allowed!");
 		}
-		
 	}
 
 
 	// Use this for initialization
 	void Start () {
-		this.spawnPlayer();
-		this.spawnPeople ();
-		this.spawnWerewolf ();
+		this.gameStarted = false;
+		startNewLevel ();
 	}
+
 	
 	// Update is called once per frame
 	void Update () {
@@ -51,13 +48,24 @@ public class GameManager : MonoBehaviour {
 	private void startNewLevel (){
 		this.clearScreen ();
 
+//		this.peopleRefs = new List<GameObject>();
 		this.spawnPlayer();
 		this.spawnPeople ();
 		this.spawnWerewolf ();
+
+		SoundManager.instance.startNewLevel ();
+		UIManager.instance.startNewLevel ();
+		this.gameStarted = true;
 	}
 
 	private void clearScreen () {
+		while (this.peopleRefs.Count > 0) {
+			Destroy (this.peopleRefs[0]);
+		}
 
+
+		Destroy (this.player);
+		Destroy (this.werewolf);
 	}
 
 

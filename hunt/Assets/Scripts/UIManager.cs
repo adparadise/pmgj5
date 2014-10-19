@@ -8,21 +8,33 @@ public class UIManager : MonoBehaviour {
 	// UI Elements
 	public UITimer timer;
 
-	// Use this for initialization
-	void Start () {
+	void Awake () {
 		Debug.Log ("Creating UI Manager");
-
+		
 		if (instance == null) {
 			instance = this;
 		} else {
 			Debug.LogError("Only one copy of gamemanager allowed!");
 		}
+	}
 
-		timer.startTimer();
+	// Use this for initialization
+	void Start () {
+		timer.guiText.enabled = false;
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		
+	}
+
+	public void startNewLevel () {
+		timer.resetTimer ();
+		timer.guiText.enabled = true;
+		timer.startTimer();
+	}
+
+	public void endLevel () {
+
 	}
 }

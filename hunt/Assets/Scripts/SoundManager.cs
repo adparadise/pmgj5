@@ -3,17 +3,20 @@ using System.Collections;
 
 public class SoundManager : MonoBehaviour {
 
+	public static SoundManager instance;
+
 	public AudioClip music;
 	public AudioClip chaseMusic;
 	
-	public static SoundManager instance;
+
 	public AudioSource audioSource;
 
-	private bool[] wasPlaying;
+	private bool isPaused;
+
 	private int counterForNextClip;
 
 	// Use this for initialization
-	void Start () {
+	void Awake () {
 		Debug.Log ("Creating Sound Manager");
 		
 		if (instance == null) {
@@ -22,6 +25,7 @@ public class SoundManager : MonoBehaviour {
 			Debug.LogError("Only one copy of gamemanager allowed!");
 		}
 
+		this.isPaused = true;
 
 	}
 	
@@ -29,7 +33,7 @@ public class SoundManager : MonoBehaviour {
 	void Update () {
 		if (this.audioSource.isPlaying) {
 			// do nothing
-		} else {
+		} else if (!isPaused) {
 			this.counterForNextClip++;
 			if (this.counterForNextClip == 2) {
 				// play second track
@@ -51,15 +55,18 @@ public class SoundManager : MonoBehaviour {
 
 	}
 	
-	public void beginRound() {
+	public void startNewLevel() {
 		this.audioSource.Stop ();
 		this.counterForNextClip = 0;
 		this.audioSource.clip = music;
+		this.isPaused = false;
 		this.audioSource.Play ();
 
 	}
 	
-	public void endRound() {
+	public void endLevel() {
+		this.isPaused = true;
+		this.audioSource.Stop ();
 	}
 }
 
