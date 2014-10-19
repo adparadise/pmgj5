@@ -5,7 +5,7 @@ AnimatorController:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: professor_walk_cycle_no_hat_18
+  m_Name: player
   serializedVersion: 2
   m_AnimatorParameters:
   - m_Name: Direction
@@ -516,17 +516,21 @@ StateMachine:
       second:
       - {fileID: 110140824}
     data:
-      first: {fileID: 110281421}
+      first: {fileID: 110201090}
       second:
-      - {fileID: 110168625}
+      - {fileID: 110174469}
     data:
-      first: {fileID: 110243959}
+      first: {fileID: 110209720}
       second:
-      - {fileID: 110135295}
+      - {fileID: 110108317}
     data:
       first: {fileID: 110240787}
       second:
       - {fileID: 110134221}
+    data:
+      first: {fileID: 110243959}
+      second:
+      - {fileID: 110135295}
     data:
       first: {fileID: 110250305}
       second:
@@ -536,13 +540,9 @@ StateMachine:
       second:
       - {fileID: 110184030}
     data:
-      first: {fileID: 110201090}
+      first: {fileID: 110281421}
       second:
-      - {fileID: 110174469}
-    data:
-      first: {fileID: 110209720}
-      second:
-      - {fileID: 110108317}
+      - {fileID: 110168625}
   m_MotionSetCount: 1
   m_AnyStatePosition: {x: 48, y: 120, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
