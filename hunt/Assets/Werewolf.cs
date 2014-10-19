@@ -23,14 +23,15 @@ public class Werewolf : MonoBehaviour {
 		// Do animation updates here.
 	}
 	
-	void FixedUpdate () {
+	void FixedUpdate () { 
 		if (rigidbody2D.position == this.goalLocation) {
 			findNewGoal();
 			while (Mathf.Abs(this.goalLocation.magnitude) > 2) {
 				findNewGoal();
 			}
 		}
-		
+
+		// TODO: shift entire movement in one direction if they can't move in the other.
 		Vector2 movementVector = Vector2.MoveTowards (rigidbody2D.position, goalLocation, speed);
 		
 		rigidbody2D.MovePosition ( movementVector );
