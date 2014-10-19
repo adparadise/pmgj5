@@ -16,11 +16,12 @@ public class UIManager : MonoBehaviour {
 		} else {
 			Debug.LogError("Only one copy of gamemanager allowed!");
 		}
+		timer.guiText.enabled = false;
 	}
 
 	// Use this for initialization
 	void Start () {
-		timer.guiText.enabled = false;
+
 	}
 	
 	// Update is called once per frame

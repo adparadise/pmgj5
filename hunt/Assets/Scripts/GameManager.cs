@@ -28,12 +28,12 @@ public class GameManager : MonoBehaviour {
 		} else {
 			Debug.LogError("Only one copy of gamemanager allowed!");
 		}
+		this.gameStarted = false;
 	}
 
 
 	// Use this for initialization
 	void Start () {
-		this.gameStarted = false;
 		startNewLevel ();
 	}
 
