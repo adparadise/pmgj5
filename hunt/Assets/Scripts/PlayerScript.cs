@@ -39,6 +39,7 @@ public class PlayerScript : MonoBehaviour {
 	}
 
 	void doActions () {
+
 		bool isPunching;
 		bool isStateChange;
 

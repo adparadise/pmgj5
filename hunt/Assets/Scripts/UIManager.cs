@@ -36,6 +36,7 @@ public class UIManager : MonoBehaviour {
 	}
 
 	public void endLevel () {
-
+		timer.stopTimer ();
+		timer.guiText.enabled = false;
 	}
 }

@@ -34,13 +34,15 @@ public class GameManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		startNewLevel ();
+
 	}
 
 	
 	// Update is called once per frame
 	void Update () {
-	
+		if (!this.gameStarted && Input.GetKeyDown (KeyCode.Space)) {
+			this.startNewLevel();
+		}
 	}
 
 
@@ -48,7 +50,6 @@ public class GameManager : MonoBehaviour {
 	private void startNewLevel (){
 		this.clearScreen ();
 
-//		this.peopleRefs = new List<GameObject>();
 		this.spawnPlayer();
 		this.spawnPeople ();
 		this.spawnWerewolf ();
@@ -66,12 +67,10 @@ public class GameManager : MonoBehaviour {
 
 	private void clearScreen () {
 		while (this.peopleRefs.Count > 0) {
-			GameObject person = this.peopleRefs[0];
-			this.peopleRefs.RemoveAt(0);
+			GameObject person = this.peopleRefs [0];
+			this.peopleRefs.RemoveAt (0);
 			Destroy (person);
-
 		}
-
 
 		Destroy (this.player);
 		Destroy (this.werewolf);
@@ -86,8 +85,6 @@ public class GameManager : MonoBehaviour {
 	public void showLoseScreen () {
 		this.endLevel ();
 		SoundManager.instance.playLoseMusic ();
-
-
 	}
 
 
