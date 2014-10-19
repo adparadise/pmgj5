@@ -20,6 +20,18 @@ AnimatorController:
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 9100000}
+  - m_Name: IsPunching
+    m_Type: 4
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 9100000}
+  - m_Name: PunchingFor
+    m_Type: 3
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 3
     m_Name: Base Layer
@@ -281,7 +293,7 @@ State:
   m_Speed: 1
   m_CycleOffset: 0
   m_Motions:
-  - {fileID: 7400000, guid: 89d6dc0b701a9490b87742e70973147e, type: 2}
+  - {fileID: 7400000, guid: 6083dbeaa65414762a5ebb5549881b69, type: 2}
   m_ParentStateMachine: {fileID: 110700000}
   m_Position: {x: 36, y: 168, z: 0}
   m_IKOnFeet: 0
@@ -326,7 +338,7 @@ State:
   m_Speed: 1
   m_CycleOffset: 0
   m_Motions:
-  - {fileID: 7400000, guid: 9516c72cae1e34039b4202cbf59d33f3, type: 2}
+  - {fileID: 7400000, guid: 6d7c6e1805ede40afa7e1e32e588d62a, type: 2}
   m_ParentStateMachine: {fileID: 110700000}
   m_Position: {x: -240, y: 108, z: 0}
   m_IKOnFeet: 0
@@ -341,7 +353,7 @@ State:
   m_Speed: 1
   m_CycleOffset: 0
   m_Motions:
-  - {fileID: 7400000, guid: 05c2bceb5c1244c9a93c5e673af8425b, type: 2}
+  - {fileID: 7400000, guid: c125a2751c6d24f80b611adac4a0585d, type: 2}
   m_ParentStateMachine: {fileID: 110700000}
   m_Position: {x: 24, y: 60, z: 0}
   m_IKOnFeet: 0
@@ -386,7 +398,7 @@ State:
   m_Speed: 1
   m_CycleOffset: 0
   m_Motions:
-  - {fileID: 7400000, guid: 80730b8ed30c54447a424a3a08af8e57, type: 2}
+  - {fileID: 7400000, guid: fefc0c06ab09a4e9dbdce901d4418bb5, type: 2}
   m_ParentStateMachine: {fileID: 110700000}
   m_Position: {x: 288, y: 108, z: 0}
   m_IKOnFeet: 0

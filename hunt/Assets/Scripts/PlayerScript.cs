@@ -7,6 +7,9 @@ public class PlayerScript : MonoBehaviour {
 	private Animator animator;
 	private Vector2 lastPos;
 	private int currentDirection = 0;
+	private bool isPunching = false;
+	private int punchingSince;
+	private GameObject fist;
 
 	// Use this for initialization
 	void Start () {
@@ -15,6 +18,11 @@ public class PlayerScript : MonoBehaviour {
 	}
 	
 	void FixedUpdate() {
+		doMovement ();
+		doActions ();
+	}
+
+	void doMovement () {
 		float w = Input.GetAxis ("Horizontal");
 		float h = Input.GetAxis ("Vertical");
 		float distance = Mathf.Sqrt (Mathf.Pow (h, 2) + Mathf.Pow (w, 2));
@@ -26,10 +34,48 @@ public class PlayerScript : MonoBehaviour {
 		
 		Vector2 next = rigidbody2D.position + movement;
 		rigidbody2D.MovePosition(next);	
+		
 		applyAnimationFromMovement (-w, -h);
 	}
 
+	void doActions () {
+		bool isPunching;
+		bool isStateChange;
+
+		isPunching = Input.GetKeyDown (KeyCode.Space);
+		isStateChange = false;
+		if (this.isPunching && !isPunching) {
+			this.isPunching = false;
+			isStateChange = true;
+			this.endPunch();
+		} else if (!this.isPunching && isPunching) {
+			this.isPunching = true;
+			this.punchingSince = Time.frameCount;
+			isStateChange = true;
+			this.beginPunch();
+		}
+
+		int punchingFor = 0;
+		if (this.isPunching) {
+			punchingFor = Time.frameCount - this.punchingSince;
+		}
+
+		if (isStateChange) {
+			applyAnimationFromState(this.isPunching, punchingFor);
+		}
 	
+
+
+	}
+
+	void beginPunch () {
+
+	}
+
+	void endPunch () {
+
+	}
+
 	void applyAnimationFromMovement (float w, float h) {
 		Vector2 currentPos;
 		
@@ -80,5 +126,11 @@ public class PlayerScript : MonoBehaviour {
 	void setAnimationState (int direction, bool isMoving) {
 		animator.SetInteger("Direction", direction);
 		animator.SetBool ("IsMoving", isMoving);
+	}
+
+	void applyAnimationFromState (bool isPunching, int punchingFor) {
+		animator.SetBool ("IsPunching", isPunching);
+		animator.SetInteger ("PunchingFor", punchingFor);
+
 	}
 }
