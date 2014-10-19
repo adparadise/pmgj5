@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -56,6 +56,7 @@ public class GameManager : MonoBehaviour {
 
 		SoundManager.instance.startNewLevel ();
 		UIManager.instance.startNewLevel ();
+		BackgroundManager.instance.showMap ();
 		this.gameStarted = true;
 	}
 
