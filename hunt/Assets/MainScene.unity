@@ -259,6 +259,7 @@ MonoBehaviour:
   player: {fileID: 0}
   werewolf: {fileID: 0}
   playerPrefab: {fileID: 100000, guid: 4521ed43546344e4c9a3fbaae7ef6539, type: 2}
+  personWomanPrefab: {fileID: 100000, guid: 18ca500c1979e4ada86f14ffb3b13e4d, type: 2}
   personPrefab: {fileID: 100000, guid: 097b264d7bc434feb8aef8da65790694, type: 2}
   werewolfPrefab: {fileID: 100000, guid: 529cd3d026b1d47d087721dd3814d385, type: 2}
 --- !u!4 &641896233
