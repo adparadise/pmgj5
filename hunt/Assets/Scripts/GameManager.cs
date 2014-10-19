@@ -125,7 +125,7 @@ public class GameManager : MonoBehaviour {
 
 	public static Vector2 findRandomPointOnMap() {
 		return new Vector2(Random.Range(-GameManager.instance.widthOfLevel, GameManager.instance.widthOfLevel),
-		                   Random.Range(-GameManager.instance.heightOfLevel, GameManager.instance.heightOfLevel));
+		                   Random.Range(-GameManager.instance.heightOfLevel + 1.2f, GameManager.instance.heightOfLevel - 1.1f));
 	}
 }
 
