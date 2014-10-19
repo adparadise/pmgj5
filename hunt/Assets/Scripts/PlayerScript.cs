@@ -11,15 +11,22 @@ public class PlayerScript : MonoBehaviour {
 	private int punchingSince;
 	private GameObject fist;
 
+	public int punchDuration = 25;
+	public int coolDownDuration = 35;
+	public GameObject fistPrefab;
+
 	// Use this for initialization
 	void Start () {
 		animator = this.GetComponent<Animator>();
 		lastPos = rigidbody2D.position;
+		this.fist = (GameObject)Instantiate (fistPrefab);
+		this.endPunch ();
 	}
 	
 	void FixedUpdate() {
 		doMovement ();
 		doActions ();
+		updateFistPos ();
 	}
 
 	void doMovement () {
@@ -39,20 +46,15 @@ public class PlayerScript : MonoBehaviour {
 	}
 
 	void doActions () {
-		bool isPunching;
+		bool isPunchRequested;
 		bool isStateChange;
 
-		isPunching = Input.GetKeyDown (KeyCode.Space);
-		isStateChange = false;
-		if (this.isPunching && !isPunching) {
-			this.isPunching = false;
-			isStateChange = true;
-			this.endPunch();
-		} else if (!this.isPunching && isPunching) {
+		isPunchRequested = Input.GetKeyDown (KeyCode.Space);
+		if (!this.isPunching && isPunchRequested) {
 			this.isPunching = true;
+			this.beginPunch ();
 			this.punchingSince = Time.frameCount;
-			isStateChange = true;
-			this.beginPunch();
+			applyAnimationFromState(true);
 		}
 
 		int punchingFor = 0;
@@ -60,20 +62,23 @@ public class PlayerScript : MonoBehaviour {
 			punchingFor = Time.frameCount - this.punchingSince;
 		}
 
-		if (isStateChange) {
-			applyAnimationFromState(this.isPunching, punchingFor);
+		if (punchingFor > this.punchDuration) {
+			this.endPunch ();
+			applyAnimationFromState(false);
 		}
-	
-
-
+		if (punchingFor > this.coolDownDuration) {
+			this.isPunching = false;
+		}
 	}
 
 	void beginPunch () {
-
+		this.fist.rigidbody2D.collider2D.enabled = true;
+		this.fist.renderer.enabled = true;
 	}
 
 	void endPunch () {
-
+		this.fist.rigidbody2D.collider2D.enabled = false;
+		this.fist.renderer.enabled = false;
 	}
 
 	void applyAnimationFromMovement (float w, float h) {
@@ -122,15 +127,33 @@ public class PlayerScript : MonoBehaviour {
 		
 		setAnimationState (this.currentDirection, isMoving);
 	}
-	
+
+	void updateFistPos () {
+		Vector2 nextPos = new Vector2(0,0);
+
+		if (this.currentDirection == 0) {
+			nextPos.x = this.rigidbody2D.position.x + 0;
+			nextPos.y = this.rigidbody2D.position.y - 0.5f;
+		} else if (this.currentDirection == 1) {
+			nextPos.x = this.rigidbody2D.position.x - 0.25f;
+			nextPos.y = this.rigidbody2D.position.y + 0;
+		} else if (this.currentDirection == 2) {
+			nextPos.x = this.rigidbody2D.position.x + 0;
+			nextPos.y = this.rigidbody2D.position.y + 0.25f;
+		} else if (this.currentDirection == 3) {
+			nextPos.x = this.rigidbody2D.position.x + 0.25f;
+			nextPos.y = this.rigidbody2D.position.y + 0;
+		}
+
+		this.fist.rigidbody2D.MovePosition (nextPos);
+	}
+
 	void setAnimationState (int direction, bool isMoving) {
 		animator.SetInteger("Direction", direction);
 		animator.SetBool ("IsMoving", isMoving);
 	}
 
-	void applyAnimationFromState (bool isPunching, int punchingFor) {
+	void applyAnimationFromState (bool isPunching) {
 		animator.SetBool ("IsPunching", isPunching);
-		animator.SetInteger ("PunchingFor", punchingFor);
-
 	}
 }
