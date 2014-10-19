@@ -12,7 +12,7 @@ public class UITimer : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		roundTime = 30.0f;
+		roundTime = 90.0f;
 		updateWithTime (roundTime);
 	}
 	
