@@ -112,7 +112,7 @@ GUIText:
   m_GameObject: {fileID: 338109560}
   m_Enabled: 1
   serializedVersion: 3
-  m_Text: Gui Text
+  m_Text: 85.00
   m_Anchor: 4
   m_Alignment: 1
   m_PixelOffset: {x: 0, y: 0}
@@ -342,7 +342,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timer: {fileID: 338109561}
-  scoreText: {fileID: 0}
+  scoreText: {fileID: 1247859752}
 --- !u!4 &835472835
 Transform:
   m_ObjectHideFlags: 0
