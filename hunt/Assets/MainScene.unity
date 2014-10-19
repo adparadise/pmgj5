@@ -213,7 +213,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   widthOfLevel: 5
-  heightOfLevel: 5
+  heightOfLevel: 3.5
   numberOfPeople: 20
   peopleRefs: []
   player: {fileID: 0}
@@ -416,7 +416,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: .192156866, g: .301960796, b: .474509805, a: .0196078438}
+  m_BackGroundColor: {r: .149019614, g: .149019614, b: .149019614, a: .0196078438}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
